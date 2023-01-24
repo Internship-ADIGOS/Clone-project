@@ -1,13 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import chart from '../components/Chart'
+import Chart from './Chart'
 
 const Homepage = () => {
   return (
       <>
       <div>This is a Homepage</div>
-      <Navbar />
-      <chart />
+      <Chart />
       </>
 
   )

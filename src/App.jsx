@@ -1,13 +1,21 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import { Switch, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Homepage from './Home/Homepage';
+import Navbar from './components/Navbar';
+
 
 function App() {
   return (
-    <Route>
-      
-    </Route>
+    <>
+    <Navbar />
+    <Router>
+      <Routes>
+       <Route path="/home" element={<Homepage />} />
+       <Route path='/oops' element={<h1>OOps!</h1>} />
+      </Routes>
+    </Router>
+   </>
   )
 }
 
