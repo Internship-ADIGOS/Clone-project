@@ -6,8 +6,13 @@ import {BsStack} from 'react-icons/bs'
 import {MdDarkMode} from 'react-icons/md'
 import {CgProfile} from 'react-icons/cg'
 import {FiSearch} from 'react-icons/fi'
+import { Dropdown } from 'react-bootstrap'
+
 
 const Navbar = () => {
+
+  const [open, setOpen] = useState(false)
+
   return (
     <div className='flex w-full h-22 bg-slate-200'>
       {/* logo */}
@@ -18,10 +23,21 @@ const Navbar = () => {
       <div className='flex w-full p-2 m-2'>
       <div id='items' className='flex justify-evenly px-12'>
       <div id='blockchain' className='flex w-48 '>
-        <div className='inline px-2 text-2xl'>
+        {/* <div className='inline px-2 text-2xl'>
         <BsLink45Deg />
         </div>
-        <h1 className='text-xl'>Blockchain</h1>
+        <h1 className='text-xl'>
+          Blockchain
+        </h1>
+      </div> */}
+    <div>
+    <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="nav-link-icon">
+    <BsLink45Deg />
+    </span>
+    Blockchain
+    </a>
+    </div>
       </div>
 
       <div id='tokens' className='flex w-48'>
@@ -37,8 +53,26 @@ const Navbar = () => {
       </div>
       <h1 className='text-xl'>Apps</h1>
       </div>
-
       </div>
+
+      {/* <div id='tokens' className='flex w-48'>
+      <div className='inline px-2 text-2xl'>
+        <GiTwoCoins />
+      </div>
+        <h1 className='text-xl'>Gnosis</h1>
+      </div> */}
+      
+      <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Dropdown Button
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
       </div>
       {/* dark theme */}
       <div className='inline text-3xl p-2'>
@@ -50,7 +84,7 @@ const Navbar = () => {
        <CgProfile />
       </div>
       <div className='inline text-2xl w-28 text-center font-sans'>
-       <a href='/signin'  >Sign in</a>
+       <a href='/signin'>Sign in</a>
       </div>
       </div>
 
