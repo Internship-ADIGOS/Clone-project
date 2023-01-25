@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import logo from '../media/logo.svg'
 import {BsLink45Deg} from "react-icons/bs"
 import {GiTwoCoins} from "react-icons/gi"
@@ -6,74 +7,150 @@ import {BsStack} from 'react-icons/bs'
 import {MdDarkMode} from 'react-icons/md'
 import {CgProfile} from 'react-icons/cg'
 import {FiSearch} from 'react-icons/fi'
-import { Dropdown } from 'react-bootstrap'
+import {IoMdArrowDropdown} from 'react-icons/io'
+
 
 
 const Navbar = () => {
 
-  const [open, setOpen] = useState(false)
 
+  const [open1, setOpen1] = useState(false)
+  const [open2, setOpen2] = useState(false)
+  const [open3, setOpen3] = useState(false)
+  const [open4, setOpen4] = useState(false)
+
+  const handleOpen1 = () =>{
+    setOpen1(!open1)
+    setOpen2(false)
+    setOpen3(false)
+    setOpen4(false)
+  }
+  const handleOpen2 = () =>{
+    setOpen2(!open2)
+    setOpen1(false)
+    setOpen3(false)
+    setOpen4(false)
+  }
+  const handleOpen3 = () =>{
+    setOpen3(!open3)
+    setOpen1(false)
+    setOpen2(false)
+    setOpen4(false)    
+  }
+  const handleOpen4 = () =>{
+    setOpen4(!open4)
+    setOpen1(false)
+    setOpen2(false)
+    setOpen3(false)
+  }
   return (
-    <div className='flex w-full h-22 bg-slate-200'>
+    <div className='flex w-full h-22 bg-slate-100 text-slate-600'>
       {/* logo */}
       <div id='logo' className='w-2/4 px-3 p-2 m-2'>
         <img src={logo} alt="logo" />
       </div>
       
-      <div className='flex w-full p-2 m-2'>
-      <div id='items' className='flex justify-evenly px-12'>
-      <div id='blockchain' className='flex w-48 '>
-        {/* <div className='inline px-2 text-2xl'>
-        <BsLink45Deg />
+      <div className='flex p-2 w-full'>
+        {/* blockchain  */}
+        <div id="blockchain" className='inline px-2'>
+          <button className='flex items-center p-3' onClick={handleOpen1}>
+          <BsLink45Deg  className='text-xl mx-1'/>
+          <h1>Blockchain</h1>
+          <IoMdArrowDropdown />
+          </button>
+          { open1 ? (
+           <div id="dropdown" className='bg-white rounded-md'>
+            <ul className='p-1'>
+              <h1 className='text-xl'>Blocks</h1>
+              <li className='block px-4 py-1'><a>Blocks</a></li>
+              <li className='block px-4 py-1'><a>Uncles</a></li>
+              <li className='block px-4 py-1'><a>Forked blocks</a></li>
+            </ul>
+            <span className='block w-full bg-slate-200 h-0.5'></span>
+            <ul className='p-1 bg-white rounded-md'>
+              <h1 className='text-xl'>Transactions</h1>
+              <li className='block px-4 py-1'><a>Validated</a></li>
+              <li className='block px-4 py-1'><a>Pending</a></li>
+            </ul>
+           </div>
+          ): null}
         </div>
-        <h1 className='text-xl'>
-          Blockchain
-        </h1>
-      </div> */}
-    <div>
-    <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="nav-link-icon">
-    <BsLink45Deg />
-    </span>
-    Blockchain
-    </a>
-    </div>
-      </div>
+        
+        {/* token  */}
+        <div id="token" className='inline px-2'>
+          <button className='flex items-center p-3' onClick={handleOpen2}>
+          <GiTwoCoins  className='text-xl mx-1'/>
+          <h1>Token</h1>
+          <IoMdArrowDropdown />
+          </button>
+          { open2 ? (
+           <div id="dropdown" className='bg-white rounded-md'>
+            <ul className='p-1'>
+              <h1 className='text-xl'>Blocks</h1>
+              <li className='block px-4 py-1'><a>Blocks</a></li>
+              <li className='block px-4 py-1'><a>Uncles</a></li>
+              <li className='block px-4 py-1'><a>Forked blocks</a></li>
+            </ul>
+            <span className='block w-full bg-slate-200 h-0.5'></span>
+            <ul className='p-1 bg-white rounded-md'>
+              <h1 className='text-xl'>Transactions</h1>
+              <li className='block px-4 py-1'><a>Validated</a></li>
+              <li className='block px-4 py-1'><a>Pending</a></li>
+            </ul>
+           </div>
+        ): null}
+        </div>
+         {/* Apps  */}
+        <div id="token" className='inline px-2'>
+          <button className='flex items-center p-3' onClick={handleOpen3}>
+          <BsStack  className='text-xl mx-1 text-slate-400'/>
+          <h1>Apps</h1>
+          <IoMdArrowDropdown />
+          </button>
+          { open3 ? (
+           <div id="dropdown" className='bg-white rounded-md'>
+            <ul className='p-1'>
+              <h1 className='text-xl'>Blocks</h1>
+              <li className='block px-4 py-1'><a>Blocks</a></li>
+              <li className='block px-4 py-1'><a>Uncles</a></li>
+              <li className='block px-4 py-1'><a>Forked blocks</a></li>
+            </ul>
+            <span className='block w-full bg-slate-200 h-0.5'></span>
+            <ul className='p-1 bg-white rounded-md'>
+              <h1 className='text-xl'>Transactions</h1>
+              <li className='block px-4 py-1'><a>Validated</a></li>
+              <li className='block px-4 py-1'><a>Pending</a></li>
+            </ul>
+           </div>
+          ): null}
+        </div>
+        {/* gnosis  */}
+        <div id="token" className='inline px-2'>
+          <button className='flex items-center p-3' onClick={handleOpen4}>
+          <GiTwoCoins  className='text-xl mx-1'/>
+          <h1>Gnosis chain</h1>
+          <IoMdArrowDropdown />
+          </button>
+          { open4 ? (
+            <div id="dropdown" className='bg-white rounded-md'>
+            <ul className='p-1'>
+              <h1 className='text-xl'>Blocks</h1>
+              <li className='block px-4 py-1'><a>Blocks</a></li>
+              <li className='block px-4 py-1'><a>Uncles</a></li>
+              <li className='block px-4 py-1'><a>Forked blocks</a></li>
+            </ul>
+            <span className='block w-full bg-slate-200 h-0.5'></span>
+            <ul className='p-1 bg-white rounded-md'>
+              <h1 className='text-xl'>Transactions</h1>
+              <li className='block px-4 py-1'><a>Validated</a></li>
+              <li className='block px-4 py-1'><a>Pending</a></li>
+            </ul>
+           </div>
+             ): null}
+        </div>
 
-      <div id='tokens' className='flex w-48'>
-      <div className='inline px-2 text-2xl'>
-        <GiTwoCoins />
       </div>
-        <h1 className='text-xl'>Tokens</h1>
-      </div>
-
-      <div id='apps' className='flex w-48'>
-      <div className='inline px-2 text-2xl'>
-      <BsStack />
-      </div>
-      <h1 className='text-xl'>Apps</h1>
-      </div>
-      </div>
-
-      {/* <div id='tokens' className='flex w-48'>
-      <div className='inline px-2 text-2xl'>
-        <GiTwoCoins />
-      </div>
-        <h1 className='text-xl'>Gnosis</h1>
-      </div> */}
-      
-      <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-      </div>
+     
       {/* dark theme */}
       <div className='inline text-3xl p-2'>
         <MdDarkMode />
@@ -88,14 +165,12 @@ const Navbar = () => {
       </div>
       </div>
 
-
-
       {/* serachbar */}
-      <div id='input' className='flex inline px-3 bg-slate-200 outline-1 p-2'>
+      <div id='input' className='flex inline px-3 outline-1 p-2 w-full'>
         <div className='text-3xl p-1'>
         <FiSearch />
         </div>
-        <input className='w-52 h-9 outline-0 bg-slate-200' placeholder='Search by adress, token symbol, name, transaction'/>
+        <input className='w-full h-9 outline-0 bg-slate-200' placeholder='Search by adress, token symbol, name, transaction'/>
       </div>
     </div>
   )
