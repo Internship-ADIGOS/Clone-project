@@ -2,7 +2,12 @@ import React from 'react'
 
 const Blocks = () => {
   return (
-    <div>Blocks</div>
+    <div>
+        <div>
+            <h1>Blocks</h1>
+            <button>View All Blocks</button>
+        </div>
+    </div>
   )
 }
 
