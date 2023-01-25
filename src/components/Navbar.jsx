@@ -8,7 +8,7 @@ import {MdDarkMode} from 'react-icons/md'
 import {CgProfile} from 'react-icons/cg'
 import {FiSearch} from 'react-icons/fi'
 import {IoMdArrowDropdown} from 'react-icons/io'
-
+import {RxDotFilled} from "react-icons/rx"
 
 
 const Navbar = () => {
@@ -101,7 +101,7 @@ const Navbar = () => {
         ): null}
         </div>
          {/* Apps  */}
-        <div id="token" className='inline px-2'>
+        <div id="Apps" className='inline px-2'>
           <button className='flex items-center p-3' onClick={handleOpen3}>
           <BsStack  className='text-xl mx-1 text-slate-400'/>
           <h1>Apps</h1>
@@ -125,9 +125,9 @@ const Navbar = () => {
           ): null}
         </div>
         {/* gnosis  */}
-        <div id="token" className='inline px-2'>
+        <div id="Gnosischain" className='inline px-2'>
           <button className='flex items-center p-3' onClick={handleOpen4}>
-          <GiTwoCoins  className='text-xl mx-1'/>
+          <RxDotFilled  className='text-xl mx-1 text-lime-700'/>
           <h1>Gnosis chain</h1>
           <IoMdArrowDropdown />
           </button>
