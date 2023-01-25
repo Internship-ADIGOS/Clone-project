@@ -14,7 +14,7 @@ import {RxDotFilled} from "react-icons/rx"
 const Navbar = () => {
 
   return (
-    <div className='flex h-22 bg-slate-100 text-slate-600'>
+    <div className='flex h-22 text-slate-600'>
       {/* logo */}
       <div id='logo' className='w-2/4 px-3 p-2 m-2'>
         <img src={logo} alt="logo" />
@@ -128,8 +128,8 @@ const Navbar = () => {
       </div>
 
       {/* serachbar */}
-      <div id='input' className='flex inline px-3 outline-1 p-2 w-full items-center'>
-        <div className='text-3xl p-1'>
+      <div id='input' className='flex inline px-3 outline-1 p-2 w-full items-center bg-slate-200'>
+        <div className='text-3xl bg-slate-200'>
         <FiSearch />
         </div>
         <input className='w-full h-9 outline-0 bg-slate-200' placeholder='Search by adress, token symbol, name, transaction'/>

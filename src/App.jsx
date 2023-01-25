@@ -10,10 +10,9 @@ function App() {
   return (
     <>
     <Navbar />
-    {/* <Dropbar /> */}
     <Router>
       <Routes>
-       <Route path="/home" element={<Homepage />} />
+       <Route path="/mainnet" element={<Homepage />} />
       </Routes>
     </Router>
     <Footer />

@@ -50,7 +50,7 @@ const Footer = () => {
         "Gnosis",
     ]
   return (
-    <div className=' fixed bottom-0 w-full bg-gradient-to-b from-dark to-light font-sans'>
+    <div className='bottom-0 w-full bg-gradient-to-b from-dark to-light font-sans'>
        <div id='logo' className='flex m-2 p-2 rounded-lg'>
         <img src={logowhite} alt="logo"/>
       </div>
