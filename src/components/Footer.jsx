@@ -49,8 +49,8 @@ const Footer = () => {
         <img src={logowhite} alt="logo"/>
       </div>
       
-      <div className='flex justify-evenly'>
-      <div className='w-1/5'>
+      <div className='flex justify-around'>
+      <div className='w-28 text-blue-200'>
         <p>Blockscout is a tool for innspecting and analyzing EVM based blockchains. Blockchain explorer for ethereum Networks</p>
       </div>
       <div className=''>
