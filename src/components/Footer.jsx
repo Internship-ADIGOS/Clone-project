@@ -1,5 +1,10 @@
 import React from 'react'
 import logowhite from "../media/logowhite.svg"
+import {AiOutlineTwitter} from "react-icons/ai"
+import {AiFillGithub} from "react-icons/ai"
+import {BsTelegram} from "react-icons/bs"
+import {VscGraph} from "react-icons/vsc"
+
 
 const Footer = () => {
 
@@ -12,12 +17,13 @@ const Footer = () => {
         "Gnosis",
     ]
     const MainData = [
-        "Submit an issue",
-        "Contribut",
-        "chat",
-        "Discussions",
-        "Staking",
-        "Gnosis",
+        "Ethereum",
+        "Ethereum Classic",
+        "Optimism on Gnosis Chain",
+        "POA",
+        "RSK",
+        "ARTIS Σ",
+        "LUKSO L14"
     ]
     const TestData = [
         "Submit an issue",
@@ -44,21 +50,27 @@ const Footer = () => {
         "Gnosis",
     ]
   return (
-    <div className='h-full w-full bg-gradient-to-b from-dark to-light'>
+    <div className=' fixed bottom-0 w-full bg-gradient-to-b from-dark to-light font-sans'>
        <div id='logo' className='flex m-2 p-2 rounded-lg'>
         <img src={logowhite} alt="logo"/>
       </div>
       
-      <div className='flex justify-around'>
-      <div className='w-28 text-blue-200'>
+      <div className='flex justify-between'>
+      <div className='w-32 text-blue-200 mx-8'>
         <p>Blockscout is a tool for innspecting and analyzing EVM based blockchains. Blockchain explorer for ethereum Networks</p>
+        <div className='flex text-3xl justify-between w-48 py-12'>
+            <AiFillGithub />
+            <AiOutlineTwitter />
+            <BsTelegram />
+            <VscGraph />
+        </div>
       </div>
-      <div className=''>
+      <div>
         <h1>BlockScout</h1>
         {datascout.map((data)=>{
             return(
             <ul>
-                <li key={data} className="list-disc text-white">{data}</li>
+                <li key={data} className="list-disc text-sky-200">{data}</li>
             </ul>
             )
         })}
@@ -69,7 +81,7 @@ const Footer = () => {
         {MainData.map((data)=>{
             return(
             <ul>
-                <li key={data}>{data}</li>
+                <li key={data} className="list-disc text-sky-200">{data}</li>
             </ul>
             )
         })}
@@ -80,7 +92,7 @@ const Footer = () => {
         {TestData.map((data)=>{
             return(
             <ul>
-                <li key={data}>{data}</li>
+                <li key={data} className="list-disc text-sky-200">{data}</li>
             </ul>
             )
         })}
@@ -91,18 +103,18 @@ const Footer = () => {
         {ApiData.map((data)=>{
             return(
             <ul>
-                <li key={data}>{data}</li>
+                <li key={data} className="list-disc text-sky-200">{data}</li>
             </ul>
             )
         })}
       
     </div>
-      <div>
+      <div className='pr-12'>
         <h1>Bridges</h1>
         {BridgesData.map((data)=>{
             return(
             <ul>
-                <li key={data}>{data}</li>
+                <li key={data} className="list-disc text-sky-200">{data}</li>
             </ul>
             )
         })}
