@@ -9,6 +9,10 @@ module.exports = {
       fontFamily: {
         'sans': ['Jost'],
       },
+      colors:{
+        "dark":'#133629',
+        'light':'#3e6957'
+      }
     },
   },
   plugins: [],  

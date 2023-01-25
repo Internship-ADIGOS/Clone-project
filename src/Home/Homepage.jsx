@@ -4,7 +4,6 @@ import Chart from './Chart'
 const Homepage = () => {
   return (
       <>
-      <div>This is a Homepage</div>
       <Chart />
       </>
 

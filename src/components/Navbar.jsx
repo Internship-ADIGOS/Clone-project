@@ -5,7 +5,7 @@ import {BsLink45Deg} from "react-icons/bs"
 import {GiTwoCoins} from "react-icons/gi"
 import {BsStack} from 'react-icons/bs'
 import {MdDarkMode} from 'react-icons/md'
-import {CgProfile} from 'react-icons/cg'
+import {BsFillPersonFill} from 'react-icons/bs'
 import {FiSearch} from 'react-icons/fi'
 import {IoMdArrowDropdown} from 'react-icons/io'
 import {RxDotFilled} from "react-icons/rx"
@@ -13,53 +13,22 @@ import {RxDotFilled} from "react-icons/rx"
 
 const Navbar = () => {
 
-
-  const [open1, setOpen1] = useState(false)
-  const [open2, setOpen2] = useState(false)
-  const [open3, setOpen3] = useState(false)
-  const [open4, setOpen4] = useState(false)
-
-  const handleOpen1 = () =>{
-    setOpen1(!open1)
-    setOpen2(false)
-    setOpen3(false)
-    setOpen4(false)
-  }
-  const handleOpen2 = () =>{
-    setOpen2(!open2)
-    setOpen1(false)
-    setOpen3(false)
-    setOpen4(false)
-  }
-  const handleOpen3 = () =>{
-    setOpen3(!open3)
-    setOpen1(false)
-    setOpen2(false)
-    setOpen4(false)    
-  }
-  const handleOpen4 = () =>{
-    setOpen4(!open4)
-    setOpen1(false)
-    setOpen2(false)
-    setOpen3(false)
-  }
   return (
-    <div className='flex w-full h-22 bg-slate-100 text-slate-600'>
+    <div className='flex h-22 bg-slate-100 text-slate-600'>
       {/* logo */}
       <div id='logo' className='w-2/4 px-3 p-2 m-2'>
         <img src={logo} alt="logo" />
       </div>
       
-      <div className='flex p-2 w-full'>
+      <div className='flex p-2 w-auto'>
         {/* blockchain  */}
         <div id="blockchain" className='inline px-2'>
-          <button className='flex items-center p-3' onClick={handleOpen1}>
+          <button id="dropbtn" className='flex items-center p-3'>
           <BsLink45Deg  className='text-xl mx-1'/>
           <h1>Blockchain</h1>
           <IoMdArrowDropdown />
           </button>
-          { open1 ? (
-           <div id="dropdown" className='bg-white rounded-md'>
+           <div id="dropdown" className='bg-white rounded-md hidden hover:flex'>
             <ul className='p-1'>
               <h1 className='text-xl'>Blocks</h1>
               <li className='block px-4 py-1'><a>Blocks</a></li>
@@ -73,18 +42,16 @@ const Navbar = () => {
               <li className='block px-4 py-1'><a>Pending</a></li>
             </ul>
            </div>
-          ): null}
         </div>
         
         {/* token  */}
         <div id="token" className='inline px-2'>
-          <button className='flex items-center p-3' onClick={handleOpen2}>
+          <button className='flex items-center p-3'>
           <GiTwoCoins  className='text-xl mx-1'/>
           <h1>Token</h1>
           <IoMdArrowDropdown />
           </button>
-          { open2 ? (
-           <div id="dropdown" className='bg-white rounded-md'>
+           <div id="dropdown" className='bg-white rounded-md hidden'>
             <ul className='p-1'>
               <h1 className='text-xl'>Blocks</h1>
               <li className='block px-4 py-1'><a>Blocks</a></li>
@@ -98,17 +65,16 @@ const Navbar = () => {
               <li className='block px-4 py-1'><a>Pending</a></li>
             </ul>
            </div>
-        ): null}
         </div>
+
          {/* Apps  */}
         <div id="Apps" className='inline px-2'>
-          <button className='flex items-center p-3' onClick={handleOpen3}>
+          <button className='flex items-center p-3'>
           <BsStack  className='text-xl mx-1 text-slate-400'/>
           <h1>Apps</h1>
           <IoMdArrowDropdown />
           </button>
-          { open3 ? (
-           <div id="dropdown" className='bg-white rounded-md'>
+           <div id="dropdown" className='bg-white rounded-md hidden'>
             <ul className='p-1'>
               <h1 className='text-xl'>Blocks</h1>
               <li className='block px-4 py-1'><a>Blocks</a></li>
@@ -122,17 +88,16 @@ const Navbar = () => {
               <li className='block px-4 py-1'><a>Pending</a></li>
             </ul>
            </div>
-          ): null}
         </div>
+
         {/* gnosis  */}
-        <div id="Gnosischain" className='inline px-2'>
-          <button className='flex items-center p-3' onClick={handleOpen4}>
-          <RxDotFilled  className='text-xl mx-1 text-lime-700'/>
-          <h1>Gnosis chain</h1>
+        <div id="Apps" className='inline px-4'>
+          <button className='flex items-center p-3 w-52'>
+          <RxDotFilled  className='text-xl mx-1 text-slate-400'/>
+          <h1>Gnosis Chain</h1>
           <IoMdArrowDropdown />
-          </button>
-          { open4 ? (
-            <div id="dropdown" className='bg-white rounded-md'>
+          </button>    
+           <div id="dropdown" className='bg-white rounded-md hidden '>
             <ul className='p-1'>
               <h1 className='text-xl'>Blocks</h1>
               <li className='block px-4 py-1'><a>Blocks</a></li>
@@ -146,27 +111,24 @@ const Navbar = () => {
               <li className='block px-4 py-1'><a>Pending</a></li>
             </ul>
            </div>
-             ): null}
         </div>
 
       </div>
      
       {/* dark theme */}
-      <div className='inline text-3xl p-2'>
+      <div className='flex text-2xl p-2 items-center'>
         <MdDarkMode />
       </div>
 
-      <div className='flex p-2 w-64'>
-      <div id="login" className='text-3xl inline px-1'>
-       <CgProfile />
-      </div>
-      <div className='inline text-2xl w-28 text-center font-sans'>
-       <a href='/signin'>Sign in</a>
+      <div className='flex p-2 w-64 items-center'>
+      <div className='flex text-xl w-28 items-center'>
+       <BsFillPersonFill />
+       <a href='/signin' className='font-sans text-base px-2'>Sign in</a>
       </div>
       </div>
 
       {/* serachbar */}
-      <div id='input' className='flex inline px-3 outline-1 p-2 w-full'>
+      <div id='input' className='flex inline px-3 outline-1 p-2 w-full items-center'>
         <div className='text-3xl p-1'>
         <FiSearch />
         </div>
