@@ -50,12 +50,12 @@ const Footer = () => {
         "Gnosis",
     ]
   return (
-    <div className='bottom-0 w-full bg-gradient-to-b from-dark to-light font-sans'>
+    <div className='bottom-0 w-full  bg-gradient-to-b from-dark to-light font-sans'>
        <div id='logo' className='flex m-2 p-2 rounded-lg'>
         <img src={logowhite} alt="logo"/>
       </div>
       
-      <div className='flex justify-between'>
+      <div className='block md:flex text-xs md:text-base justify-between'>
       <div className='w-32 text-blue-200 mx-8'>
         <p>Blockscout is a tool for innspecting and analyzing EVM based blockchains. Blockchain explorer for ethereum Networks</p>
         <div className='flex text-3xl justify-between w-48 py-12'>

@@ -12,7 +12,10 @@ module.exports = {
       colors:{
         "dark":'#133629',
         'light':'#3e6957'
-      }
+      },
+      display:['group-focus'],
+      opacity:['group-focus'],
+      inset:['group-focus']
     },
   },
   plugins: [],  

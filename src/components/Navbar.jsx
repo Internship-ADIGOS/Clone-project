@@ -16,11 +16,11 @@ const Navbar = () => {
   return (
     <div className='flex h-22 text-slate-600'>
       {/* logo */}
-      <div id='logo' className='w-2/4 px-3 p-2 m-2'>
-        <img src={logo} alt="logo"  className='md:text-2xl sm-text-2xl'/>
+      <div id='logo' className='block w-full p-2 m-2 md:flex md:w-1/4'>
+        <img src={logo} alt="logo" className='object-fill md:text'/>
       </div>
       
-      <div className='flex p-2 w-auto'>
+      <div className='hidden md:flex md:p-2'>
         {/* blockchain  */}
         <div id="blockchain" className='inline px-2'>
           <button id="dropbtn" className='flex items-center p-3'>
@@ -97,7 +97,7 @@ const Navbar = () => {
           <h1>Gnosis Chain</h1>
           <IoMdArrowDropdown />
           </button>    
-           <div id="dropdown" className='bg-white rounded-md hidden '>
+           <div id="dropdown" className='bg-white rounded-md hidden'>
             <ul className='p-1'>
               <h1 className='text-xl'>Blocks</h1>
               <li className='block px-4 py-1'><a>Blocks</a></li>
@@ -116,11 +116,11 @@ const Navbar = () => {
       </div>
      
       {/* dark theme */}
-      <div className='flex text-2xl p-2 items-center'>
+      <div className='hidden md:flex text-2xl p-2 items-center'>
         <MdDarkMode />
       </div>
 
-      <div className='flex p-2 w-64 items-center'>
+      <div className='hidden md:flex p-2 w-64 items-center'>
       <div className='flex text-xl w-28 items-center'>
        <BsFillPersonFill />
        <a href='/signin' className='font-sans text-base px-2'>Sign in</a>
@@ -128,12 +128,27 @@ const Navbar = () => {
       </div>
 
       {/* serachbar */}
-      <div id='input' className='flex inline px-3 outline-1 p-2 w-full items-center bg-slate-200'>
+      <div id='input' className='hidden md:flex inline px-3 outline-1 p-2 w-full items-center bg-slate-200'>
         <div className='text-3xl bg-slate-200'>
         <FiSearch />
         </div>
         <input className='w-full h-9 outline-0 bg-slate-200' placeholder='Search by adress, token symbol, name, transaction'/>
       </div>
+
+      <button className="block md:hidden -right-full py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200">
+        <div className='w-5 h-1 bg-gray-600 mb-1'></div>
+        <div className='w-5 h-1 bg-gray-600 mb-1'></div>
+        <div className='w-5 h-1 bg-gray-600'></div>
+
+        <div className='absolute top-0 -right-full h-auto w-8/12 bg-white border opacity-0 sm:right-0 '>
+          <ul className='flex flex-col items-center w-full text-base cursor-pointer pt-10'>
+          <li className='hover:bg-gray-200 py-4 px-6 w-full'>Blockchain</li>
+          <li className='hover:bg-gray-200 py-4 px-6 w-full'>Token</li>
+          <li className='hover:bg-gray-200 py-4 px-6 w-full'>Apps</li>
+          <li className='hover:bg-gray-200 py-4 px-6 w-full'>Gnosis chain</li>
+          </ul>
+        </div>
+      </button>
     </div>
   )
 }
