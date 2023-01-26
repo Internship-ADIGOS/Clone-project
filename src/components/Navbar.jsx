@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className='flex h-22 text-slate-600'>
       {/* logo */}
       <div id='logo' className='w-2/4 px-3 p-2 m-2'>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo"  className='md:text-2xl sm-text-2xl'/>
       </div>
       
       <div className='flex p-2 w-auto'>
