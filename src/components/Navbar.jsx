@@ -127,7 +127,7 @@ const Navbar = () => {
       </div>
       </div>
 
-      {/* serachbar */}
+      {/* searchbar */}
       <div id='input' className='hidden md:flex inline px-3 outline-1 p-2 w-full items-center bg-slate-200'>
         <div className='text-3xl bg-slate-200'>
         <FiSearch />
