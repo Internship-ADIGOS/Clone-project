@@ -22,9 +22,9 @@ const Navbar = () => {
   return (
     <div className='nav h-12 flex items-center'>
       {/* import logo */}
-      <div id='logo' className='flex w-full'>
+      <a id='logo' href='/mainnet' className='flex w-full cursor-pointer'>
         <img src={logo} alt="logo" className='w-20 p-1 md:w-28' />
-      </div>
+      </a>
 
       <button className="block lg:hidden rounded m-1 hover:bg-gray-200 cursor-pointer"
         onClick={handleShow}

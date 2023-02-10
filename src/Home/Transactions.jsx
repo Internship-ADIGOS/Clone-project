@@ -40,8 +40,8 @@ const Transactions = () => {
     <div className='h-full m-8 shadow-lg rounded-lg shadow-lg m-12 object-fill'>
     <div className='flex-col object-fill'>
         <h1 className='inline mx-6  text-2xl text-slate-500'>Transactions</h1>
-        <div className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Transactions 
-    </div>
+        <a href="mainnet/transactions" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Transactions 
+    </a>
     <div className='flex-row w-full justify-evenly pt-12 text-slate-700'>
      {transactionsData.map((data)=>{
         return(

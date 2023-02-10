@@ -5,7 +5,7 @@ import Homepage from './Home/Homepage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Transactions from './components/Transactions';
-
+import Blocks from './components/Blocks';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Routes>
        <Route path="/mainnet" element={<Homepage />} />
        <Route path='/mainnet/transactions' element={<Transactions />} />
+       <Route path='/mainnet/blocks' element={<Blocks />} />
       </Routes>
     </Router>
     <Footer />
