@@ -28,7 +28,7 @@ const Blocks = () => {
         },
     ]
   return (
-    <div className='h-96 m-8 shadow-lg rounded-lg shadow-lg m-12'>
+    <div className='h-96 m-8 rounded-lg shadow-lg m-12 overflow-hidden'>
         <div className='flex-col '>
             <h1 className='inline mx-6  text-2xl text-slate-500'>Blocks</h1>
             <div className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Blocks

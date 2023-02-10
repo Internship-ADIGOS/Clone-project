@@ -48,7 +48,7 @@ const Chart = () => {
       <div className='flex justify-between'>
        {miniData.map((data)=>{
         return(
-          <div className='flex w-48 h-32 items-center' key={data}>
+          <div className='flex w-48 h-32 items-center overflow-hidden' key={data}>
           <span className={`h-12 w-1 rounded-lg mx-4 bg-white inline-block align-middle bg-${data.color}-400`}></span>
           <div className='inline w-48 md:w-12 sm:w-8'>
               <h2 className='text-sky-300'>{data.name}</h2>
@@ -59,7 +59,7 @@ const Chart = () => {
        })}
       </div>
       </div>
-      <div className='flex bg-light inline w-2/3 mt-12 rounded-lg items-center'>
+      <div className='flex bg-light inline w-1/2 mt-12 rounded-lg items-center object-fit overflow-hidden'>
          {dataCard}
       </div>
 
