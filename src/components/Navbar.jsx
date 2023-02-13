@@ -14,9 +14,14 @@ import { RxDotFilled } from "react-icons/rx"
 const Navbar = () => {
 
   const [show, setShow] = useState(true)
+  const [drop, setDrop] = useState(true)
 
   function handleShow() {
     setShow(!show)
+  }
+
+  function handleDrop(){
+    setDrop(!drop)
   }
 
   return (
@@ -36,32 +41,44 @@ const Navbar = () => {
 
       {show && <div className='lg:hidden flex w-full absolute top-10 left- bg-white'>
         <ul className='flex-col w-full justify-evenly text-base cursor-pointer py-2'>
-          <li className='hover:bg-gray-200 py-1 px-2 w-full '>
+          <button className='hover:bg-gray-200 py-1 px-2 w-full' onClick={handleDrop}>
             <BsLink45Deg className='inline-block mx-1' />
-            Blockchain
-          </li>
-          <li className='hover:bg-gray-200 py-1 px-2 w-full'>
+             Blockchain
+             { drop && <div className='bg-white flex justify-center p-2 rounded-md m-1'>
+            <ul>
+              <li><a href="/mainnet/transactions">Transactions</a></li>
+              <li><a href="/mainnet/blocks">Blocks</a></li>
+            </ul>
+          </div>}
+          </button>
+          <button className='hover:bg-gray-200 py-1 px-2 w-full'>
             <GiTwoCoins className='inline-block mx-1' />
             Token
-          </li>
-          <li className='hover:bg-gray-200 py-1 px-2 w-full'>
+          </button>
+          <button className='hover:bg-gray-200 py-1 px-2 w-full'>
             <BsStack className='inline-block mx-1' />
             Apps
-          </li>
-          <li className='hover:bg-gray-200 py-1 px-2 w-full'>
+          </button>
+          <button className='hover:bg-gray-200 py-1 px-2 w-full'>
             <RxDotFilled className='inline-block mx-1' />
             Gnosis chain
-          </li>
+          </button>
         </ul>
       </div>}
 
       <div className='items hidden lg:flex items-center justify-between space-x-4'>
         <div className='blockchain block items-center'>
-          <button className='blockchain-btn flex items-center'>
+          <button className='blockchain-btn flex items-center' onClick={handleDrop}>
             <BsLink45Deg />
             <h1>Blockchain</h1>
             <IoMdArrowDropdown />
           </button>
+         { drop && <div className='absolute right-0 z-10 bg-white flex justify-center p-2 rounded-md m-1'>
+            <ul>
+            <li><a href="/mainnet/transactions">Transactions</a></li>
+            <li><a href="/mainnet/blocks">Blocks</a></li>
+            </ul>
+          </div>}
         </div>
         <div className='tokens block items-center'>
           <button className='tokens-btn flex items-center'>
