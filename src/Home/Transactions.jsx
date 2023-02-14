@@ -1,41 +1,24 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Transactions = () => {
 
-    const transactionsData = [
-        {
-          name:"Contract call",
-          status: "success",
-          address: "0xE1cF7ca11B35D5391905abdf1A118063f5a09DA6 → 0x9405D6cfAB44D68C2BACa2273E5c3F107a88D16c",
-          trasaction_id:"0xf4db910e69b617deec41ab6193ab6084d904e756a4ecf2df3dbf4edf9e80bb15",
-          token: "0 xDai 0.00089139000415982 TX Fee",
-          color: "lime"
-        },
-        {
-          name:"Contract call",
-          status: "success",
-          address: "0xE1cF7ca11B35D5391905abdf1A118063f5a09DA6 → 0x9405D6cfAB44D68C2BACa2273E5c3F107a88D16c",
-          trasaction_id:"0xf4db910e69b617deec41ab6193ab6084d904e756a4ecf2df3dbf4edf9e80bb15",
-          token: "0 xDai 0.00089139000415982 TX Fee",
-          color: "pink"
-        },
-        {
-          name:"Transaction",
-          status: "success",
-          address: "0xE1cF7ca11B35D5391905abdf1A118063f5a09DA6 → 0x9405D6cfAB44D68C2BACa2273E5c3F107a88D16c",
-          trasaction_id:"0xf4db910e69b617deec41ab6193ab6084d904e756a4ecf2df3dbf4edf9e80bb15",
-          token: "0 xDai 0.00089139000415982 TX Fee",
-          color: "pink"
-        },
-        {
-          name:"Contract call",
-          status: "success",
-          address: "0xE1cF7ca11B35D5391905abdf1A118063f5a09DA6 → 0x9405D6cfAB44D68C2BACa2273E5c3F107a88D16c",
-          trasaction_id:"0xf4db910e69b617deec41ab6193ab6084d904e756a4ecf2df3dbf4edf9e80bb15",
-          token: "0 xDai 0.00089139000415982 TX Fee",
-          color: "lime"
-        },
-    ]
+  const [data, setData] = useState([])
+
+  async function getDetails(){
+
+    axios.get("http://142.93.219.125:8095/v1/get_latesttransactions")
+    .then(response =>{
+      console.log(response.data.result[0])
+      setData(response.data.result)
+    })
+  }
+
+  useEffect(()=>{
+   getDetails()
+  },[])
+
   return (
     <div className='h-full m-8 shadow-lg rounded-lg shadow-lg m-12 object-fill'>
     <div className='flex-col object-fill'>
@@ -43,20 +26,25 @@ const Transactions = () => {
         <a href="mainnet/transactions" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Transactions 
     </a>
     <div className='flex-row w-full justify-evenly pt-12 text-slate-700'>
-     {transactionsData.map((data)=>{
-        return(
-          <div className={`flex w-full m-4`}>
-            <div className={`w-1/6 h-18 border-2 border-green-200 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-${data.color}-200`}>
-             <h1 className='text-center items-center'>{data.name}</h1>
-             <h1 className='text-center items-center'>{data.status}</h1>
+     {data.map((data, index)=>{
+         if(index >= 4){
+          return;
+         }else{
+           return(
+             <div className={`flex w-full m-4`} key={data}>
+            <div className={`w-1/6 h-18 border-2 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-lime-200`}>
+             <h1 className='text-center items-center'>Transaction</h1>
+             <h1 className='text-center items-center'>Success</h1>
             </div>
             <div className='w-full h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-12 px-4'>
-             <h1>{data.address}</h1>
-             <h1>{data.trasaction_id}</h1>
-             <h1>{data.token}</h1>
+             <h1>{data.hash}</h1>
+             <h1>{data.fromaddress} --> {data.toaddress}</h1>
+             
+             <h1>{data.amount/1000000000000000000} xDai --> mCoin</h1>
             </div>
           </div>
         )
+      }
      })}
     </div>
     </div>

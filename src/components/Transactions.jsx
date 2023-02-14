@@ -63,7 +63,7 @@ const Transactions = () => {
                     </div>
                     </div>
                     <div className='px-2'>
-                    <h1>{data.amount/1000000000000000000} xDai -> mCoin</h1> {/*Amount*/} 
+                    <h1>{data.amount/1000000000000000000} xDai --> mCoin</h1> {/*Amount*/} 
                     </div>
                     <div className='px-2'>
                     <h1>Block <br />#{data.blocknumber}</h1> {/*block Number*/} 
