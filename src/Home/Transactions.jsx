@@ -31,7 +31,7 @@ const Transactions = () => {
           return;
          }else{
            return(
-             <div className={`flex w-full m-4`} key={data}>
+             <div className={`flex  justify-between w-full m-4`} key={data}>
             <div className={`w-1/6 h-18 border-2 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-lime-200`}>
              <h1 className='text-center items-center'>Transaction</h1>
              <h1 className='text-center items-center'>Success</h1>
@@ -41,6 +41,10 @@ const Transactions = () => {
              <h1>{data.fromaddress} --> {data.toaddress}</h1>
              
              <h1>{data.amount/1000000000000000000} xDai --> mCoin</h1>
+            <div className='flex'>
+              <h1>{data.block_number}</h1>
+              <h1>{data.timestamp}</h1>
+            </div>
             </div>
           </div>
         )

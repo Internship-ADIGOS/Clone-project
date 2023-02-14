@@ -1,108 +1,35 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Blocks = () => {
 
-    let blockData = [
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-       {
-        code:"#232423232",
-        no:2,
-        bytes:332,
-        time:3,
-        validator:"0x00000000000000000000000000000000000",
-        priority_fee: 0.0004739,
-        burnt_fee:0.4343323,
-        gas_limit:439049,
-        gas_used:0.443
-    },
-    ]
+    const [data, setData] = useState([])
+
+    async function getDetails(){
+     axios.get("http://142.93.219.125:8095/v1/get_latestblocks")
+     .then(response=>{
+        console.log(response.data.result)
+        setData(response.data.result)
+      }
+     )
+  }
+
+  useEffect(()=>{
+    getDetails()
+  }, [])
+
   return (
     <div>
       <div className='h-full m-8 shadow-lg rounded-lg shadow-lg m-12 object-fill'>
         <div className='flex-col object-fill'>
           <h1 className='inline mx-6  text-2xl text-slate-500'>Blocks</h1>
           <div className='flex-row w-full justify-evenly pt-12 text-slate-700'>
-            {blockData.map((data) => {
+            {data.map((data) => {
               return (
-                <div className={`flex w-full m-4 overflow-hidden`}>
-                  <div className={`w-1/6 h-18 border-2 border-green-300 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-${data.color}-200 overflow-hidden`}>
-                    <h1 className='text-center items-center'>{data.code}</h1>
+                <div className={`flex w-full m-4 overflow-hidden`} key={data}>
+                  <div className={`w-1/6 h-18 border-2 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-lime-200 overflow-hidden`}>
+                    <h1 className='text-center items-center'>{data.block_number}</h1>
                     <h1 className='text-center items-center'>Block</h1>
                   </div>
                   <div>
@@ -110,13 +37,12 @@ const Blocks = () => {
                   <div className='w-full flex justify-between h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-10 px-4 overflow-hidden'>
                     <div className=' parent flex-col w-full'>
                     <div className='child-1 flex space-x-2'>
-                    <h5>{data.no} transactions</h5>
-                    <h5>{data.bytes} bytes</h5>
-                    <h5>{data.time} seconds ago</h5>
+                    {/* <h5>{data.hash} transactions</h5> */}
+                    {/* <h5>{data.time} seconds ago</h5> */}
                     </div>
                     
                     <div className='child-2 w-full'>
-                    <h2>Validator {data.validator}</h2>
+                    <h2>Validator: {data.hash}</h2>
                     </div>
                     </div>
 
