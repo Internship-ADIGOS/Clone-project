@@ -9,24 +9,11 @@ const Transactions = () => {
   const [data, setData] = useState([])
   
 
-  // let TsxData = [
-  //   {
-  //     name: "Contract call",
-  //     status: "success",
-  //     from_address: "0xE1cF7ca11B35D5391905abdf1A118063f5a09DA6",
-  //     to_address: "0x9405D6cfAB44D68C2BACa2273E5c3F107a88D16c",
-  //     hash: "0xf4db910e69b617deec41ab6193ab6084d904e756a4ecf2df3dbf4edf9e80bb15",
-  //     token: "0 xDai 0.00089139000415982 TX Fee",
-  //     color: "lime",
-  //     block_number:"#76732685",
-  //     time:"6"
-  //   },
-  // ]
-
   async function getDetails(){
 
     axios.get("http://142.93.219.125:8095/v1/get_latesttransactions")
     .then(response =>{
+      console.log(response.data.result)
       setData(response.data.result)
     })
   }
