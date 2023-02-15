@@ -9,7 +9,6 @@ const Blocks = () => {
     async function getDetails(){
      axios.get("http://142.93.219.125:8095/v1/get_latestblocks")
      .then(response=>{
-        console.log(response.data.result)
         setData(response.data.result)
       }
      )
@@ -23,7 +22,7 @@ const Blocks = () => {
     <div className='h-96 m-8 rounded-lg shadow-lg m-12 overflow-hidden'>
         <div className='flex-col '>
             <h1 className='inline mx-6  text-2xl text-slate-500'>Blocks</h1>
-            <a href="mainnet/blocks" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>
+            <a href="/blocks" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>
              View All Blocks
            </a>
         <div className='flex w-full justify-evenly pt-24 text-slate-700'>

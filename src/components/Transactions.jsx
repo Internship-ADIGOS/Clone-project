@@ -27,7 +27,6 @@ const Transactions = () => {
 
     axios.get("http://142.93.219.125:8095/v1/get_latesttransactions")
     .then(response =>{
-      console.log(response.data.result[0])
       setData(response.data.result)
     })
   }

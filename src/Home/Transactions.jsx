@@ -10,7 +10,6 @@ const Transactions = () => {
 
     axios.get("http://142.93.219.125:8095/v1/get_latesttransactions")
     .then(response =>{
-      console.log(response.data.result[0])
       setData(response.data.result)
     })
   }
@@ -23,7 +22,7 @@ const Transactions = () => {
     <div className='h-full m-8 shadow-lg rounded-lg shadow-lg m-12 object-fill'>
     <div className='flex-col object-fill'>
         <h1 className='inline mx-6  text-2xl text-slate-500'>Transactions</h1>
-        <a href="mainnet/transactions" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Transactions 
+        <a href="/transactions" className='inline p-3 border-2 text-teal-900 border-teal-700 hover:bg-teal-900 rounded-md hover:text-white float-right mr-8'>View All Transactions 
     </a>
     <div className='flex-row w-full justify-evenly pt-12 text-slate-700'>
      {data.map((data, index)=>{
@@ -40,7 +39,7 @@ const Transactions = () => {
              <h1>{data.hash}</h1>
              <h1>{data.fromaddress} --> {data.toaddress}</h1>
              
-             <h1>{data.amount/1000000000000000000} xDai --> mCoin</h1>
+             <h1>{data.amount/1000000000000000000} xDai-mCoin</h1>
             <div className='flex'>
               <h1>{data.block_number}</h1>
               <h1>{data.timestamp}</h1>

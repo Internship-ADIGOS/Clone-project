@@ -14,7 +14,7 @@ const Blocks = () => {
       }
      )
   }
-
+  
   useEffect(()=>{
     getDetails()
   }, [])

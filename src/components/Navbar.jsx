@@ -14,7 +14,7 @@ import { RxDotFilled } from "react-icons/rx"
 const Navbar = () => {
 
   const [show, setShow] = useState(true)
-  const [drop, setDrop] = useState(true)
+  const [drop, setDrop] = useState(false)
 
   function handleShow() {
     setShow(!show)
@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div className='nav h-12 flex items-center'>
       {/* import logo */}
-      <a id='logo' href='/mainnet' className='flex w-full cursor-pointer'>
+      <a id='logo' href='/' className='flex w-full cursor-pointer'>
         <img src={logo} alt="logo" className='w-20 p-1 md:w-28' />
       </a>
 
