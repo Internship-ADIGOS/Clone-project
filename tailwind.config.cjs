@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Jost'],
+        'nunito':['Nunito Sans', 'sans-serif']
       },
       colors:{
         "dark":'#133629',

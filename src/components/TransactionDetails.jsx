@@ -27,14 +27,10 @@ export const TransactionDetails = () => {
    getTransactionDetails()
   },[])
   return (
-    <div className='h-full m-8 shadow-lg '>
+    <div className='h-full m-8 shadow-xl font-nunito'>
       <div className='space-y-4'>
-        <h5 className='text-slate-700 text-sm md:text-base lg:text-xl'>Transaction Details</h5>
-        <div className='flex space-x-1 md:space-x-2'>
-          <a href="" className='flex text-green-900 text-sm  md:text-base lg:text-lg '>Open in Tenderly</a>
-          <CiShare1 className='text-sm md:text-xl mt-1' />
-        </div>
-        <div className='flex-col m-2 p-8 space-y-4'>
+        <h5 className='text-slate-700 text-sm md:text-base lg:text-2xl py-2'>Transaction Details</h5>
+        <div className='flex-col m-2 p-4 space-y-4'>
           <div className='block md:flex  lg:mr-12'>
             <div className='flex mr-12 w-48'>
             <h1 className='text-xs md:text-base'>Transaction hash</h1>
