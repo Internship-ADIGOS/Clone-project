@@ -10,7 +10,6 @@ const Transactions = () => {
 
   //useState
   const [data, setData] = useState([])
-  const [hash, setHash] = useState([])
 
   async function getDetails(){
 
@@ -18,7 +17,6 @@ const Transactions = () => {
     .then(response =>{
       console.log(response.data.result)
       setData(response.data.result)
-      setHash(response.data.result.hash)
     })
   }
 

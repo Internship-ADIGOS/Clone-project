@@ -6,7 +6,6 @@ import {AiFillCheckCircle} from "react-icons/ai"
 
 export const TransactionDetails = () => {
 
-  const [hash, setHash] = useState([])
   const [data, setData] = useState([])
   //here api will be called
   async function getTransactionDetails() {
@@ -26,7 +25,6 @@ export const TransactionDetails = () => {
 
   useEffect(()=>{
    getTransactionDetails()
-   console.log(window.location.pathname)
   },[])
   return (
     <div className='h-full m-8 shadow-lg '>
