@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import {BsArrowRight} from "react-icons/bs"
 
 const Transactions = () => {
 
@@ -24,7 +25,7 @@ const Transactions = () => {
 
   return (
     <div>
-      <div className='h-full m-8 shadow-lg rounded-lg shadow-lg m-12 object-fill'>
+      <div className='h-full m-8 shadow-lg rounded-lg m-12 object-fill'>
         <div className='flex-col object-fill'>
           <h1 className='inline mx-6  text-2xl text-slate-500'>Transactions</h1>
           <div className='flex-row w-full justify-evenly pt-12 text-slate-700'>
@@ -44,12 +45,15 @@ const Transactions = () => {
                     </div>
                     <div className='flex space-x-8'>
                     <h1>{data.fromaddress}</h1>  {/*address from*/} 
-                    <h1>---></h1>
+                    <BsArrowRight className='mt-1'/>
                     <h1> {data.toaddress}</h1>  {/*adress to*/} 
                     </div>
                     </div>
-                    <div className='px-2'>
-                    <h1>{data.amount/1000000000000000000} xDai --> mCoin</h1> {/*Amount*/} 
+                    <div className='flex space-x-4'>
+                    <h1 className='flex'>{data.amount/1000000000000000000}</h1> {/*Amount*/} 
+                    <h1 className='flex'>xDai</h1> {/*Amount*/} 
+                    <h1 className='flex mt-1'><BsArrowRight /></h1> {/*Amount*/} 
+                    <h1 className='flex'>mCoin</h1> {/*Amount*/} 
                     </div>
                     <div className='px-2'>
                     <h1>Block <br />#{data.blocknumber}</h1> {/*block Number*/} 
