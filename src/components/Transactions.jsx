@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import {BsArrowRight} from "react-icons/bs"
+import { createContext } from 'react'
+import { RxValue } from 'react-icons/rx'
 
 const Transactions = () => {
 
   //useState
   const [data, setData] = useState([])
-  
+  const [hash, setHash] = useState([])
 
   async function getDetails(){
 
@@ -16,9 +18,16 @@ const Transactions = () => {
     .then(response =>{
       console.log(response.data.result)
       setData(response.data.result)
+      setHash(response.data.result.hash)
     })
   }
 
+  //context
+  // const MyContext = createContext()
+  // <MyContext.provider>
+  //   value={{hash}}
+  // </MyContext.provider>
+  
   useEffect(()=>{
    getDetails()
   },[])
@@ -41,7 +50,7 @@ const Transactions = () => {
                   <div className='w-full flex justify-between h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-10 px-4 space-x-4 overflow-hidden'>
                     <div className='flex-col space-y-4'>
                     <div className='flex justify-between space-x-12'>
-                    <h1>{data.hash}</h1> {/*hash*/} 
+                    <a href={data.hash} className="hover:underline">{data.hash}</a> {/*hash*/} 
                     </div>
                     <div className='flex space-x-8'>
                     <h1>{data.fromaddress}</h1>  {/*address from*/} 

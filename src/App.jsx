@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import './App.css'
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Homepage from './Home/Homepage';
@@ -6,9 +6,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Transactions from './components/Transactions'
 import Blocks from './components/Blocks';
+import { TransactionDetails } from './components/TransactionDetails';
+
+
 
 function App() {
-
 
   return (
     <>
@@ -18,6 +20,7 @@ function App() {
        <Route exact path="/" element={<Homepage />} />
        <Route exact path="/transactions" element={<Transactions />} />
        <Route exact path="/blocks"  element={<Blocks />} />
+       <Route exact path={ "/" + window.location.pathname} element={<TransactionDetails />} />
       </Routes>
     </Router>
     <Footer />

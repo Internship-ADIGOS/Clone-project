@@ -75,8 +75,8 @@ const Navbar = () => {
           </button>
          { drop && <div className='absolute right-0 z-10 bg-white flex justify-center p-2 rounded-md m-1'>
             <ul>
-            <li><a href="/mainnet/transactions">Transactions</a></li>
-            <li><a href="/mainnet/blocks">Blocks</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/blocks">Blocks</a></li>
             </ul>
           </div>}
         </div>
