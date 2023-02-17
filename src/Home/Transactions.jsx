@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import {BsArrowRight} from "react-icons/bs"
 
 const Transactions = () => {
@@ -37,11 +38,11 @@ const Transactions = () => {
              <h1 className='text-center items-center'>Success</h1>
             </div>
             <div className='w-full h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-12 px-4'>
-             <a href={data.hash} className='hover:underline'>{data.hash}</a>
+            <Link to={"transactions/" + data.hash} className="hover:underline">{data.hash}</Link>
              <div className='flex space-x-4'>
-             <h1 className='flex'>{data.fromaddress}</h1>
-             <h1 className='flex mt-1'><BsArrowRight/></h1>
-             <h1 className='flex'>{data.toaddress}</h1>
+             <Link to={"transactions/address/" + data.fromaddress} className="hover:underline">{data.fromaddress}</Link>
+                    <BsArrowRight className='mt-1'/>
+            <Link to={"transactions/address/" + data.toaddress} className="hover:underline">{data.toaddress}</Link>
              </div>
              
              <div className='flex space-x-4'>

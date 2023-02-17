@@ -3,12 +3,11 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import {BsArrowRight} from "react-icons/bs"
-import { createContext } from 'react'
-import { RxValue } from 'react-icons/rx'
+import App from '../App'
+import { Link } from 'react-router-dom'
 
 const Transactions = () => {
 
-  //useState
   const [data, setData] = useState([])
 
   async function getDetails(){
@@ -18,13 +17,7 @@ const Transactions = () => {
       console.log(response.data.result)
       setData(response.data.result)
     })
-  }
-
-  //context
-  // const MyContext = createContext()
-  // <MyContext.provider>
-  //   value={{hash}}
-  // </MyContext.provider>
+  }    
   
   useEffect(()=>{
    getDetails()
@@ -48,12 +41,12 @@ const Transactions = () => {
                   <div className='w-full flex justify-between h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-10 px-4 space-x-4 overflow-hidden'>
                     <div className='flex-col space-y-4'>
                     <div className='flex justify-between space-x-12'>
-                    <a href={data.hash} className="hover:underline">{data.hash}</a> {/*hash*/} 
+                    <Link to={"/transactions/" + data.hash}  className="hover:underline">{data.hash}</Link>
                     </div>
                     <div className='flex space-x-8'>
-                    <h1>{data.fromaddress}</h1>  {/*address from*/} 
+                    <Link to={"address/" + data.fromaddress} className="hover:underline">{data.fromaddress}</Link>
                     <BsArrowRight className='mt-1'/>
-                    <h1> {data.toaddress}</h1>  {/*adress to*/} 
+                    <Link to={"address/" + data.toaddress} className="hover:underline">{data.toaddress}</Link>
                     </div>
                     </div>
                     <div className='flex space-x-4'>

@@ -12,7 +12,7 @@ export const TransactionDetails = () => {
     
     
     const headers = {
-      hash: window.location.pathname.slice(1)
+      hash: window.location.pathname.slice(14)
     }
 
     //calling the api
@@ -25,6 +25,7 @@ export const TransactionDetails = () => {
 
   useEffect(()=>{
    getTransactionDetails()
+   console.log(window.location.pathname)
   },[])
   return (
     <div className='h-full m-8 shadow-xl font-nunito'>
