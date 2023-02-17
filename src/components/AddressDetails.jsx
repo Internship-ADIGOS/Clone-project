@@ -102,11 +102,9 @@ const AddressDetails = () => {
  { tsx.map((data, index)=>{
   return(
    <div className="block md:flex" key={index}>
-      <div className='w-1/6 h-22 border-2 py-4 my-2 rounded-l-md border-l-4 border-teal-900 bg-lime-200'>
-          <div className='block space-y-2'>
-             <h1 className='text-center font-bold text-xl'>Transaction</h1>
-             <h1 className='text-center'>Success</h1>
-          </div>
+       <div className={`w-1/6 h-18 border-2 py-12 my-2 rounded-l-md border-l-4 border-teal-900 bg-lime-200`}>
+             <h1 className='text-center items-center'>Transaction</h1>
+             <h1 className='text-center items-center'>Success</h1>
             </div>
             <div className='w-full h-18 my-2 border-2 border-slate-200 mr-12 rounded-r-md py-12 px-4'>
             <Link to={"transactions/" + data.hash} className="hover:underline">{data.hash}</Link>
